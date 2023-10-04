@@ -13,6 +13,21 @@ struct Aluno {
     string resultado;
 };
 
+// Função para realizar a ordenação dos alunos pelo nome usando o Bubble Sort
+void bubbleSort(vector<Aluno>& alunos) {
+    int n = alunos.size();
+    bool swapped;
+    do {
+        swapped = false;
+        for (int i = 0; i < n - 1; i++) {
+            if (alunos[i].nome > alunos[i + 1].nome) {
+                swap(alunos[i], alunos[i + 1]);
+                swapped = true;
+            }
+        }
+    } while (swapped);
+}
+
 int main() {
     int N;
     vector<Aluno> alunos;
@@ -85,6 +100,8 @@ int main() {
         }
         
     }
+
+    bubbleSort(alunos);
 
     return 0;
 }
