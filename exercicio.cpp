@@ -176,3 +176,70 @@ int main() {
 
     return 0;
 }
+while (resposta == "s" || resposta == "S") {
+        string nomeParaAlterarNota;
+        cout << "\nDigite o nome do aluno que deseja alterar a nota: ";
+        cin.ignore();
+        getline(cin, nomeParaAlterarNota);
+
+        int escolha;
+
+        do {
+            // Exibir o menu
+            cout << "\nMenu:" << endl;
+            cout << "1 - Alterar a primeira nota" << endl;
+            cout << "2 - Alterar a segunda nota" << endl;
+            cout << "0 - Nenhuma nota" << endl;
+
+            // Obter a escolha do usuário
+            cout << "Escolha uma opção: ";
+            cin >> escolha;
+
+            // Realizar a ação com base na escolha do usuário
+            switch (escolha) {
+                case 1:
+                    alterarNotaAluno(alunos, nomeParaAlterarNota, escolha);
+
+                    cout << "\nInformações dos alunos (ordenados por nome):" << endl;
+                    for (int i = 0; i < alunos.size(); i++) {
+                        cout << "Aluno " << i + 1 << ": " << alunos[i].nome << ", Nota 1: " << alunos[i].nota1 << ", Nota 2: " << alunos[i].nota2 << ", resultado: " << alunos[i].resultado << endl;
+                    }
+
+                    cout << "\nDeseja alterar nota de outro aluno (s/n)? ";
+                    cin >> resposta;
+                    break;
+                case 2:
+                    alterarNotaAluno(alunos, nomeParaAlterarNota, escolha);
+
+                    cout << "\nInformações dos alunos (ordenados por nome):" << endl;
+                    for (int i = 0; i < alunos.size(); i++) {
+                        cout << "Aluno " << i + 1 << ": " << alunos[i].nome << ", Nota 1: " << alunos[i].nota1 << ", Nota 2: " << alunos[i].nota2 << ", resultado: " << alunos[i].resultado << endl;
+                    }
+
+                    cout << "\nDeseja alterar nota de outro aluno (s/n)? ";
+                    cin >> resposta;
+                    break;
+                case 0:
+                    cout << "Saindo do programa." << endl;
+                    resposta = "n";
+                    break;
+                default:
+                    cout << "Opção inválida. Tente novamente." << endl;
+            }
+
+            if(resposta == "n" || resposta == "N"){
+                cout << "\nInformações dos alunos (ordenados por nome):" << endl;
+                for (int i = 0; i < alunos.size(); i++) {
+                    cout << "Aluno " << i + 1 << ": " << alunos[i].nome << ", Nota 1: " << alunos[i].nota1 << ", Nota 2: " << alunos[i].nota2 << ", resultado: " << alunos[i].resultado << endl;
+                }
+
+                break;
+            }
+
+        } while (escolha != 0);
+
+
+    }
+
+    return 0;
+}
