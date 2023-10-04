@@ -143,5 +143,36 @@ int main() {
 
     bubbleSort(alunos);
 
+    cout << "\nInformações dos alunos (ordenados por nome):" << endl;
+    for (int i = 0; i < alunos.size(); i++) {
+        cout << "Aluno " << i + 1 << ": " << alunos[i].nome << ", Nota 1: " << alunos[i].nota1 << ", Nota 2: " << alunos[i].nota2 << ", resultado: " << alunos[i].resultado << endl;
+    }
+
+    // Exclusão de alunos
+    string resposta;
+    cout << "\nDeseja excluir algum aluno (s/n)? ";
+    cin >> resposta;
+
+    while (resposta == "s" || resposta == "S") {
+        string nomeParaExcluir;
+        cout << "\nDigite o nome do aluno que deseja excluir: ";
+        cin.ignore();
+        getline(cin, nomeParaExcluir);
+
+        excluirAluno(alunos, nomeParaExcluir);
+
+        cout << "\nDeseja excluir outro aluno (s/n)? ";
+        cin >> resposta;
+    }
+
+    cout << "\nInformações dos alunos (ordenados por nome):" << endl;
+    for (int i = 0; i < alunos.size(); i++) {
+        cout << "Aluno " << i + 1 << ": " << alunos[i].nome << ", Nota 1: " << alunos[i].nota1 << ", Nota 2: " << alunos[i].nota2 << ", resultado: " << alunos[i].resultado << endl;
+    }
+
+    // Alterar nota de aluno
+    cout << "\nDeseja alterar notar de algum aluno (s/n)? ";
+    cin >> resposta;
+
     return 0;
 }
