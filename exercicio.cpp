@@ -174,9 +174,7 @@ int main() {
     cout << "\nDeseja alterar notar de algum aluno (s/n)? ";
     cin >> resposta;
 
-    return 0;
-}
-while (resposta == "s" || resposta == "S") {
+    while (resposta == "s" || resposta == "S") {
         string nomeParaAlterarNota;
         cout << "\nDigite o nome do aluno que deseja alterar a nota: ";
         cin.ignore();
