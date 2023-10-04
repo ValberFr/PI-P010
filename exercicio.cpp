@@ -28,6 +28,46 @@ void bubbleSort(vector<Aluno>& alunos) {
     } while (swapped);
 }
 
+// Função para excluir um aluno da lista pelo nome
+void excluirAluno(vector<Aluno>& alunos, const string& nome) {
+    for (auto it = alunos.begin(); it != alunos.end(); ++it) {
+        if (it->nome == nome) {
+            alunos.erase(it);
+            cout << "Aluno removido com sucesso." << endl;
+            return;
+        }
+    }
+    cout << "Aluno não encontrado na lista." << endl;
+}
+
+// Função para alterar as notas de um aluno pelo nome
+void alterarNotaAluno(vector<Aluno>& alunos, const string& nome, const int& escolha) {
+    for (auto& aluno : alunos) {
+        if (aluno.nome == nome) {
+            if (escolha == 1){
+                cout << "\nDigite a nova Nota 1 para o aluno " << nome << ": ";
+                cin >> aluno.nota1;
+            }else{
+                cout << "\nDigite a nova Nota 2 para o aluno " << nome << ": ";
+            cin >> aluno.nota2;
+            }
+
+            aluno.media = (aluno.nota1 + aluno.nota2) / 2;
+
+            if(aluno.media >= 7){
+                aluno.resultado = "Aprovado";
+            }else{
+                aluno.resultado = "Reprovado";
+            }
+            
+            cout << "\nNotas do aluno " << nome << " alteradas com sucesso." << endl;
+
+            return;
+        }
+    }
+    cout << "Aluno não encontrado na lista." << endl;
+}
+
 int main() {
     int N;
     vector<Aluno> alunos;
